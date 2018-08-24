@@ -1,0 +1,127 @@
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+Username : resourcem
+password : resourcem
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+1...Attendance
+CREATE TABLE  "ATTNDNC" 
+   (	"AT_ID" NUMBER(*,0), 
+	"E_ID" NUMBER(*,0) NOT NULL ENABLE, 
+	"E_DATE" DATE, 
+	"ATTNDNCE" VARCHAR2(10) NOT NULL ENABLE, 
+	 PRIMARY KEY ("AT_ID") ENABLE
+   )
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+2...Bank
+CREATE TABLE  "BNK" 
+   (	"B_ID" NUMBER(*,0), 
+	"B_BRNCH" CHAR(20) NOT NULL ENABLE, 
+	"B_NAME" CHAR(20) NOT NULL ENABLE, 
+	"B_CTY" CHAR(20) NOT NULL ENABLE, 
+	"B_ADD" VARCHAR2(60) NOT NULL ENABLE, 
+	"B_EMAIL" VARCHAR2(30), 
+	 PRIMARY KEY ("B_ID") ENABLE
+   )
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+3...Customer
+CREATE TABLE  "CUSTOMER" 
+   (	"C_ID" NUMBER(*,0), 
+	"C_NAME" CHAR(30) NOT NULL ENABLE, 
+	"C_PH" NUMBER(10,0) NOT NULL ENABLE, 
+	"C_ADD" VARCHAR2(40), 
+	"C_EMAIL" VARCHAR2(40) NOT NULL ENABLE, 
+	"C_CITY" CHAR(20), 
+	"C_STATE" CHAR(20), 
+	 PRIMARY KEY ("C_ID") ENABLE
+   )   
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+4...Enquiry
+CREATE TABLE  "ENQUIRY" 
+   (	"E_ID" NUMBER(*,0), 
+	"E_TYP" VARCHAR2(30) NOT NULL ENABLE, 
+	"E_DATE" DATE, 
+	"E_FED" VARCHAR2(50) NOT NULL ENABLE, 
+	"E_NAME" CHAR(30), 
+	 PRIMARY KEY ("E_ID") ENABLE
+   )
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+5...Expense
+CREATE TABLE  "EXPENSE" 
+   (	"EX_ID" NUMBER(*,0), 
+	"EX_TYP" CHAR(20) NOT NULL ENABLE, 
+	"E_AMT" NUMBER(*,0) NOT NULL ENABLE, 
+	"E_DATE" DATE, 
+	"E_DESP" VARCHAR2(30), 
+	 PRIMARY KEY ("EX_ID") ENABLE
+   )   
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+6...Inventory
+CREATE TABLE  "INVENTORY" 
+   (	"INV_ID" NUMBER(*,0), 
+	"PRO_ID" NUMBER(*,0) NOT NULL ENABLE, 
+	"UN_PRC" NUMBER(*,0), 
+	"PRO_QTY" NUMBER(*,0), 
+	"R_LB" NUMBER(*,0), 
+	 PRIMARY KEY ("INV_ID") ENABLE
+   )
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+7...Login
+CREATE TABLE  "LOGIN" 
+   (	"U_ID" VARCHAR2(20), 
+	"U_TYP" CHAR(10) NOT NULL ENABLE, 
+	"U_PSS" VARCHAR2(20) NOT NULL ENABLE, 
+	"S_QUES" VARCHAR2(30), 
+	"S_ANS" VARCHAR2(30), 
+	"U_NAME" CHAR(50) NOT NULL ENABLE, 
+	 PRIMARY KEY ("U_ID") ENABLE
+   )   
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+8...Payment
+CREATE TABLE  "PAYMENT" 
+   (	"P_ID" NUMBER(*,0), 
+	"C_NAME" CHAR(20) NOT NULL ENABLE, 
+	"C_PH" NUMBER(10,0) NOT NULL ENABLE, 
+	"E_ID" NUMBER(*,0), 
+	"E_NAME" CHAR(20), 
+	"E_CON" NUMBER(10,0), 
+	"S_ID" NUMBER(*,0), 
+	 PRIMARY KEY ("P_ID") ENABLE
+   )
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+9...Promotion
+CREATE TABLE  "PROMOTION" 
+   (	"PRM_ID" NUMBER(10,0), 
+	"PRM_NAME" CHAR(30) NOT NULL ENABLE, 
+	"PRO_PR" NUMBER(10,0) NOT NULL ENABLE, 
+	"PRO_ID" NUMBER(10,0) NOT NULL ENABLE, 
+	 PRIMARY KEY ("PRM_ID") ENABLE
+   )
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+10...Sale
+CREATE TABLE  "SALE" 
+   (	"S_ID" NUMBER(10,0), 
+	"PRO_ID" NUMBER(10,0), 
+	"PRO_QTY" NUMBER(10,0), 
+	"PRO_PRC" NUMBER(10,0), 
+	 PRIMARY KEY ("S_ID") ENABLE
+   )
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+11...Sale Return
+CREATE TABLE  "SALERET" 
+   (	"SR_ID" NUMBER(10,0), 
+	"S_ID" NUMBER(10,0), 
+	"PRO_ID" NUMBER(10,0), 
+	"PRO_QTY" NUMBER(10,0), 
+	"PRO_PRC" NUMBER(10,0), 
+	 PRIMARY KEY ("SR_ID") ENABLE
+   )
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+12...Supplier
+CREATE TABLE  "SUPPLIER" 
+   (	"SUP_ID" NUMBER(*,0), 
+	"SUP_NAME" CHAR(30) NOT NULL ENABLE, 
+	"SUP_CON" NUMBER(10,0), 
+	"SUP_ADD" VARCHAR2(60) NOT NULL ENABLE, 
+	"SUP_EM" VARCHAR2(40) NOT NULL ENABLE, 
+	 PRIMARY KEY ("SUP_ID") ENABLE
+   )   
+-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*   
